@@ -82,6 +82,25 @@ function doAlgorithm(array) {
                 assignObjects();
             }
         }
+        //top/bottom faces
+        else if (array[algorithmLoop][0] < 6) {
+            if (array[algorithmLoop][0] === 4) {
+                var newftl = corner_ftr;
+                corner_ftr = corner_btr;
+                corner_btr = corner_btl;
+                corner_btl = corner_ftl;
+                corner_ftl = newftl;
+                assignObjects();
+            }
+            else {
+                var newfbl = corner_fbr;
+                corner_fbr = corner_bbr;
+                corner_bbr = corner_bbl;
+                corner_bbl = corner_fbl;
+                corner_fbl = newfbl;
+                assignObjects();
+            }
+        }
     }
       algorithmLoop = algorithmLoop + 1;
     }
