@@ -1,3 +1,11 @@
 var colors = ["white", "yellow", "green", "blue", "red", "orange"];
 var corner1 = {tiles:3, tile1:2, tile2:3, tile3:1};
-var corner1 = {tiles:3, tile1:2, tile2:3, tile3:1};
+var corner2 = {tiles:3, tile1:2, tile2:3, tile3:1};
+var corner3 = {tiles:3, tile1:2, tile2:3, tile3:1};
+var corner4 = {tiles:3, tile1:2, tile2:3, tile3:1};
+var corner5 = {tiles:3, tile1:2, tile2:3, tile3:1};
+var corner6 = {tiles:3, tile1:2, tile2:3, tile3:1};
+var corner7 = {tiles:3, tile1:2, tile2:3, tile3:1};
+var corner8 = {tiles:3, tile1:2, tile2:3, tile3:1};
+var edge1 = {tiles:2, tile1:2, tile2:5};
+var edge1 = {tiles:2, tile1:2, tile2:5};
