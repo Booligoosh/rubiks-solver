@@ -46,19 +46,19 @@ function doAlgorithm(array) {
       if (array[algorithmLoop][1] === true) {
         if (array[algorithmLoop][0] < 2) {
             if (array[algorithmLoop][0] === 0) {
-                var newftl = fbl;
-                fbl = fbr
-                fbr = ftr;
-                ftr = ftl;
-                ftl = newftl;
+                var newftl = corner_fbl;
+                corner_fbl = corner_fbr
+                corner_fbr = corner_ftr;
+                corner_ftr = corner_ftl;
+                corner_ftl = newftl;
                 assignObjects();
             }
             else {
-                var newbtl = bbl;
-                bbl = bbr
-                bbr = btr;
-                btr = btl;
-                btl = newbtl;
+                var newbtl = corner_bbl;
+                corner_bbl = corner_bbr
+                corner_bbr = corner_btr;
+                corner_btr = corner_btl;
+                corner_btl = newbtl;
                 assignObjects();
             }
         }
@@ -69,30 +69,30 @@ function doAlgorithm(array) {
 
 function assignObjects() {
     //fb
-    ftl.fb = true;
-    ftr.fb = true;
-    fbl.fb = true;
-    fbr.fb = true;
-    btl.fb = false;
-    btr.fb = false;
-    bbl.fb = false;
-    bbr.fb = false;
+    corner_ftl.fb = true;
+    corner_ftr.fb = true;
+    corner_fbl.fb = true;
+    corner_fbr.fb = true;
+    corner_btl.fb = false;
+    corner_btr.fb = false;
+    corner_bbl.fb = false;
+    corner_bbr.fb = false;
     //tb
-    ftl.tb = true;
-    ftr.tb = true;
-    fbl.tb = false;
-    fbr.tb = false;
-    btl.tb = true;
-    btr.tb = true;
-    bbl.tb = false;
-    bbr.tb = false;
+    corner_ftl.tb = true;
+    corner_ftr.tb = true;
+    corner_fbl.tb = false;
+    corner_fbr.tb = false;
+    corner_btl.tb = true;
+    corner_btr.tb = true;
+    corner_bbl.tb = false;
+    corner_bbr.tb = false;
     //lr
-    ftl.lr = true;
-    ftr.lr = false;
-    fbl.lr = true;
-    fbr.lr = false;
-    btl.lr = true;
-    btr.lr = false;
-    bbl.lr = true;
-    bbr.lr = false;
+    corner_ftl.lr = true;
+    corner_ftr.lr = false;
+    corner_fbl.lr = true;
+    corner_fbr.lr = false;
+    corner_btl.lr = true;
+    corner_btr.lr = false;
+    corner_bbl.lr = true;
+    corner_bbr.lr = false;
 }
