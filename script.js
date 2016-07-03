@@ -44,6 +44,7 @@ function doAlgorithm(array) {
     while (algorithmLoop <  array.length) {
       //clockwise
       if (array[algorithmLoop][1] === true) {
+        //front/back faces
         if (array[algorithmLoop][0] < 2) {
             if (array[algorithmLoop][0] === 0) {
                 var newftl = corner_fbl;
@@ -59,6 +60,25 @@ function doAlgorithm(array) {
                 corner_bbr = corner_btr;
                 corner_btr = corner_btl;
                 corner_btl = newbtl;
+                assignObjects();
+            }
+        }
+        //left/right faces
+        else if (array[algorithmLoop][0] < 4) {
+            if (array[algorithmLoop][0] === 2) {
+                var newbtl = corner_bbl;
+                corner_bbl = corner_fbl;
+                corner_bbl = corner_ftl;
+                corner_ftl = corner_btl;
+                corner_btl = newbtl;
+                assignObjects();
+            }
+            else {
+                var newbtr = corner_bbr;
+                corner_bbr = corner_fbr;
+                corner_bbr = corner_ftr;
+                corner_ftr = corner_btr;
+                corner_btr = newbtr;
                 assignObjects();
             }
         }
