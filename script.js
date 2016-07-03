@@ -29,3 +29,70 @@ var center3 = {tiles:1, tile1:2};
 var center4 = {tiles:1, tile1:2};
 var center5 = {tiles:1, tile1:2};
 var center6 = {tiles:1, tile1:2};
+//positions
+var corner_ftl = corner1;
+var corner_ftr = corner2;
+var corner_fbl = corner3;
+var corner_fbr = corner4;
+var corner_btl = corner5;
+var corner_btr = corner6;
+var corner_bbl = corner7;
+var corner_bbr = corner8;
+
+function doAlgorithm(array) {
+    var algorithmLoop = 0;
+    while (algorithmLoop <  array.length) {
+      //clockwise
+      if (array[algorithmLoop][1] === true) {
+        if (array[algorithmLoop][0] < 2) {
+            if (array[algorithmLoop][0] === 0) {
+                var newftl = fbl;
+                fbl = fbr
+                fbr = ftr;
+                ftr = ftl;
+                ftl = newftl;
+                assignObjects();
+            }
+            else {
+                var newbtl = bbl;
+                bbl = bbr
+                bbr = btr;
+                btr = btl;
+                btl = newbtl;
+                assignObjects();
+            }
+        }
+    }
+      algorithmLoop = algorithmLoop + 1;
+    }
+}
+
+function assignObjects() {
+    //fb
+    ftl.fb = true;
+    ftr.fb = true;
+    fbl.fb = true;
+    fbr.fb = true;
+    btl.fb = false;
+    btr.fb = false;
+    bbl.fb = false;
+    bbr.fb = false;
+    //tb
+    ftl.tb = true;
+    ftr.tb = true;
+    fbl.tb = false;
+    fbr.tb = false;
+    btl.tb = true;
+    btr.tb = true;
+    bbl.tb = false;
+    bbr.tb = false;
+    //lr
+    ftl.lr = true;
+    ftr.lr = false;
+    fbl.lr = true;
+    fbr.lr = false;
+    btl.lr = true;
+    btr.lr = false;
+    bbl.lr = true;
+    bbr.lr = false;
+}
