@@ -74,10 +74,10 @@ function doAlgorithm(array) {
                 assignObjects();
             }
             else {
-                var newbtr = corner_bbr;
-                corner_bbr = corner_fbr;
-                corner_bbr = corner_ftr;
-                corner_ftr = corner_btr;
+                var newbtr = corner_ftr;
+                corner_ftr = corner_fbr;
+                corner_fbr = corner_bbr;
+                corner_bbr = corner_btr;
                 corner_btr = newbtr;
                 assignObjects();
             }
