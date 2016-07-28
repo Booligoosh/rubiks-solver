@@ -5,8 +5,12 @@ var fururf = [[0,true],[4,true],[3,true],[4,false],[3,false],[0,false]];
 var colors = ["white", "yellow", "green", "blue", "red", "orange"];
 //pieces
 var pieces = [];
-for(var i = 0; i < t*t; i++) {
-    pieces.push({x: 0, y: 0, z: 0, tile1: 0, tile2: 0, tile3: 0});
+for(var i = 0; i < t*t*t; i++) {
+    pieces.push({x: 0, y: 0, z: 0, tiles: [], type: 2});
+}
+
+function piece(n) {
+    return(pieces[n]);
 }
 
 function doAlgorithm(array) {
