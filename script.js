@@ -5,7 +5,7 @@ var fururf = [[0,true],[4,true],[3,true],[4,false],[3,false],[0,false]];
 var colors = ["white", "yellow", "green", "blue", "red", "orange"];
 //pieces
 var pieces = [];
-for(var i = 0; i < t*t*t; i++) {
+for(var i = 0; i < (t*t*t) - (t - 2); i++) {
     pieces.push({x: 0, y: 0, z: 0, tiles: [], type: 2});
 }
 
