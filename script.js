@@ -13,6 +13,14 @@ function piece(n) {
     return(pieces[n]);
 }
 
+function pieceAt(x,y,z) {
+    for (var i = 0; i < pieces.length; i++) {
+        if (pieces[i].x === x && pieces[i].y === y && pieces[i].z === z) {
+            return(pieces[i]);
+        }
+    }
+}
+
 function rotateCorner(index,dir) {
     if (dir === true) {
         piece(index).tiles.splice(0,0,piece(index).tiles[piece(index).tiles.length - 1]);
@@ -24,68 +32,7 @@ function rotateCorner(index,dir) {
 }
 
 function doAlgorithm(array) {
-    var algorithmLoop = 0;
-    while (algorithmLoop <  array.length) {
-      //clockwise
-      if (array[algorithmLoop][1] === true) {
-        //front/back faces
-        if (array[algorithmLoop][0] < 2) {
-            if (array[algorithmLoop][0] === 0) {
-                var newftl = corner_fbl;
-                corner_fbl = corner_fbr
-                corner_fbr = corner_ftr;
-                corner_ftr = corner_ftl;
-                corner_ftl = newftl;
-                assignObjects();
-            }
-            else {
-                var newbtl = corner_bbl;
-                corner_bbl = corner_bbr
-                corner_bbr = corner_btr;
-                corner_btr = corner_btl;
-                corner_btl = newbtl;
-                assignObjects();
-            }
-        }
-        //left/right faces
-        else if (array[algorithmLoop][0] < 4) {
-            if (array[algorithmLoop][0] === 2) {
-                var newbtl = corner_bbl;
-                corner_bbl = corner_fbl;
-                corner_bbl = corner_ftl;
-                corner_ftl = corner_btl;
-                corner_btl = newbtl;
-                assignObjects();
-            }
-            else {
-                var newbtr = corner_ftr;
-                corner_ftr = corner_fbr;
-                corner_fbr = corner_bbr;
-                corner_bbr = corner_btr;
-                corner_btr = newbtr;
-                assignObjects();
-            }
-        }
-        //top/bottom faces
-        else if (array[algorithmLoop][0] < 6) {
-            if (array[algorithmLoop][0] === 4) {
-                var newftl = corner_ftr;
-                corner_ftr = corner_btr;
-                corner_btr = corner_btl;
-                corner_btl = corner_ftl;
-                corner_ftl = newftl;
-                assignObjects();
-            }
-            else {
-                var newfbl = corner_fbr;
-                corner_fbr = corner_bbr;
-                corner_bbr = corner_bbl;
-                corner_bbl = corner_fbl;
-                corner_fbl = newfbl;
-                assignObjects();
-            }
-        }
-    }
-      algorithmLoop = algorithmLoop + 1;
+    for (var i = 0; i < array.length; i++) {
+        
     }
 }
