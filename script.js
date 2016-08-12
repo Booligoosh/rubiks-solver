@@ -24,11 +24,11 @@ for (var l = 0; l < t; l++) {
     }
 }
 function fillFace(face, color) {
-    for (band in bands) {
-        for (strip in band.strips) {
-            if (strip[0] === face) {
+    for (var l = 0; l < bands.length; l++) {
+        for (var x = 0; x < bands[l].strips.length; x++) {
+            if (bands[l].strips[0] === face) {
                 for (var i = 0; i < strip.length; i++) {
-                    strip[i] = color;
+                    bands[l].strips[i] = color;
                 }
             }
         }
