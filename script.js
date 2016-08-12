@@ -14,7 +14,7 @@ var t = 3;
 var fururf = [[0,true],[4,true],[3,true],[4,false],[3,false],[0,false]];
 //defs
 var colors = ["white", "yellow", "green", "blue", "red", "orange"];
-var axies ['x','y','z'];
+var axies = ['x','y','z'];
 var bandFaces = [[0,3,1,2],[0,5,1,4],[4,2,5,3]];
 //bands
 var bands = [];
