@@ -24,8 +24,8 @@ for (var l = 0; l < t; l++) {
     }
 }
 function fillFace(face, color) {
-    for band in bands {
-        for strip in band.strips {
+    for (band in bands) {
+        for (strip in band.strips) {
             if (strip[0] === face) {
                 for (var i = 0; i < strip.length; i++) {
                     strip[i] = color;
