@@ -17,10 +17,21 @@ var colors = ["white", "yellow", "green", "blue", "red", "orange"];
 var axies ['x','y','z'];
 var bandFaces = [[0,3,1,2],[0,5,1,4],[4,2,5,3]];
 //bands
-var pieces = [];
+var bands = [];
 for (var l = 0; l < t; l++) {
     for(var i = 0; i < t ; i++) {
-        pieces.push({orient: axies[l], ind: i, strips: [[bandFaces[l][0],0,0,0],[bandFaces[l][1],0,0,0],[bandFaces[l][2],0,0,0],[bandFaces[l][3],0,0,0]]});
+        bands.push({orient: axies[l], ind: i, strips: [[bandFaces[l][0],0,0,0],[bandFaces[l][1],0,0,0],[bandFaces[l][2],0,0,0],[bandFaces[l][3],0,0,0]]});
+    }
+}
+function fillFace(face, color) {
+    for band in bands {
+        for strip in band.strips {
+            if (strip[0] === face) {
+                for (var i = 0; i < strip.length; i++) {
+                    strip[i] = color;
+                }
+            }
+        }
     }
 }
 function doAlgorithm(array) {
