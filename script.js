@@ -1,41 +1,27 @@
-/*
-FACE NUMBERS
--------------
-top face: 0
-bottom face: 1
-left face: 2
-right face: 3
-front face: 4
-back face: 5
--------------
-*/
-var t = 3;
 //algorithms
-var fururf = [[0,true],[4,true],[3,true],[4,false],[3,false],[0,false]];
-//defs
-var colors = ["white", "yellow", "green", "blue", "red", "orange"];
-var axies = ['x','y','z'];
-var bandFaces = [[0,3,1,2],[0,5,1,4],[4,2,5,3]];
-//bands
-var bands = [];
-for (var l = 0; l < t; l++) {
-    for(var i = 0; i < t ; i++) {
-        bands.push({orient: axies[l], ind: i, strips: [[bandFaces[l][0],0,0,0],[bandFaces[l][1],0,0,0],[bandFaces[l][2],0,0,0],[bandFaces[l][3],0,0,0]]});
-    }
-}
-function fillFace(face, color) {
-    for (var l = 0; l < bands.length; l++) {
-        for (var x = 0; x < bands[l].strips.length; x++) {
-            if (bands[l].strips[0] === face) {
-                for (var i = 0; i < strip.length; i++) {
-                    bands[l].strips[i] = color;
-                }
-            }
+var fururf = [['F',true],['U',true],['R',true],['U',false],['R',false],['F',false]];
+
+function doAlg(arr) {
+    for (var  i = 0; i < arr.length; i++) {
+        var targ = arr[i][0];
+        var dir = arr[i][1];
+        if (targ === 'F') {
+            console.log('front');
         }
-    }
-}
-function doAlgorithm(array) {
-    for (var i = 0; i < array.length; i++) {
-        
+        if (targ === 'B') {
+            console.log('back');
+        }
+        if (targ === 'L') {
+            console.log('left');
+        }
+        if (targ === 'R') {
+            console.log('right');
+        }
+        if (targ === 'U') {
+            console.log('upper');
+        }
+        if (targ === 'D') {
+            console.log('down');
+        }
     }
 }
