@@ -13,7 +13,7 @@ function doAlg(arr) {
                 var face = cube['F'];
                 var temp = cube['F'];
                 for (var l = 0; l < face.length; l++) {
-                    temp[l] = face[0][l],face[1][l],face[2][l];
+                    temp[l] = [face[0][l],face[1][l],face[2][l]];
                 }
                 cube['F'] = temp;
             }
