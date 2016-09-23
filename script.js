@@ -1,6 +1,6 @@
 //algorithms
 var fururf = [['F',true],['U',true],['R',true],['U',false],['R',false],['F',false]];
-
+var cube = {F: [[0,0,0],[0,0,0],[0,0,0]], B: [[0,0,0],[0,0,0],[0,0,0]], L: [[0,0,0],[0,0,0],[0,0,0]], R: [[0,0,0],[0,0,0],[0,0,0]], U: [[0,0,0],[0,0,0],[0,0,0]], D: [[0,0,0],[0,0,0],[0,0,0]]};
 function doAlg(arr) {
     for (var  i = 0; i < arr.length; i++) {
         var targ = arr[i][0];
