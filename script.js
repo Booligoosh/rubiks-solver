@@ -9,11 +9,17 @@ function doAlg(arr) {
         var dir = arr[i][1];
         if (targ === 'F') {
             console.log('front');
+            var face = cube['F'];
+            var temp = [[0,0,0],[0,0,0],[0,0,0]];
             if (dir) {
-                var face = cube['F'];
-                var temp = [[0,0,0],[0,0,0],[0,0,0]];
                 for (var l = 0; l < face.length; l++) {
                     temp[l] = [face[2][l],face[1][l],face[0][l]];
+                }
+                cube['F'] = temp;
+            }
+            else {
+                for (var l = 0; l < face.length; l++) {
+                    temp[l] = [face[0][l],face[1][l],face[2][l]];
                 }
                 cube['F'] = temp;
             }
