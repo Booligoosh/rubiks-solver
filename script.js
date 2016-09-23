@@ -19,7 +19,7 @@ function doAlg(arr) {
             }
             else {
                 for (var l = 0; l < face.length; l++) {
-                    temp[l] = [face[0][l],face[1][l],face[2][l]];
+                    temp[l] = [face[0][2 - l],face[1][2 - l],face[2][2 - l]];
                 }
                 cube['F'] = temp;
             }
