@@ -98,7 +98,11 @@ function doAlg(arr) {
         }
     }
 }
-function getCube() {
+function c() {
+        console.log('U');
+        console.log(U.join('\n'));
+        console.log('D');
+        console.log(D.join('\n'));
         console.log('F');
         console.log(F.join('\n'));
         console.log('B');
@@ -107,8 +111,4 @@ function getCube() {
         console.log(L.join('\n'));
         console.log('R');
         console.log(R.join('\n'));
-        console.log('U');
-        console.log(U.join('\n'));
-        console.log('D');
-        console.log(D.join('\n'));
 }
