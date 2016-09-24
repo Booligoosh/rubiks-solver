@@ -21,12 +21,22 @@ function doAlg(arr) {
                     temp[l] = [face[2][l],face[1][l],face[0][l]];
                 }
                 F = temp;
+                var x = L;
+                L[2] = D[2];
+                D[2] = R[2];
+                R[2] = U[2];
+                U[2] = x[2];
             }
             else {
                 for (var l = 0; l < face.length; l++) {
                     temp[l] = [face[0][2 - l],face[1][2 - l],face[2][2 - l]];
                 }
                 F = temp;
+                var x = R;
+                R[2] = D[2];
+                D[2] = L[2];
+                L[2] = U[2];
+                U[2] = x[2];
             }
         }
         if (targ === 'B') {
