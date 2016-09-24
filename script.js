@@ -1,7 +1,12 @@
 //algorithms
 var fururf = [['F',true],['U',true],['R',true],['U',false],['R',false],['F',false]];
 
-var cube = {F: [[0,0,0],[0,0,0],[0,0,0]], B: [[0,0,0],[0,0,0],[0,0,0]], L: [[0,0,0],[0,0,0],[0,0,0]], R: [[0,0,0],[0,0,0],[0,0,0]], U: [[0,0,0],[0,0,0],[0,0,0]], D: [[0,0,0],[0,0,0],[0,0,0]]};
+var F = [[0,0,0],[0,0,0],[0,0,0]];
+var B = [[0,0,0],[0,0,0],[0,0,0]];
+var L = [[0,0,0],[0,0,0],[0,0,0]];
+var R = [[0,0,0],[0,0,0],[0,0,0]];
+var U = [[0,0,0],[0,0,0],[0,0,0]];
+var D = [[0,0,0],[0,0,0],[0,0,0]];
 
 function doAlg(arr) {
     for (var  i = 0; i < arr.length; i++) {
@@ -9,19 +14,19 @@ function doAlg(arr) {
         var dir = arr[i][1];
         if (targ === 'F') {
             console.log('front');
-            var face = cube['F'];
+            var face = F;
             var temp = [[0,0,0],[0,0,0],[0,0,0]];
             if (dir) {
                 for (var l = 0; l < face.length; l++) {
                     temp[l] = [face[2][l],face[1][l],face[0][l]];
                 }
-                cube['F'] = temp;
+                F = temp;
             }
             else {
                 for (var l = 0; l < face.length; l++) {
                     temp[l] = [face[0][2 - l],face[1][2 - l],face[2][2 - l]];
                 }
-                cube['F'] = temp;
+                F = temp;
             }
         }
         if (targ === 'B') {
