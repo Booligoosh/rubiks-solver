@@ -41,6 +41,30 @@ function doAlg(arr) {
         }
         if (targ === 'B') {
             console.log('back');
+            var face = B;
+            var temp = [[0,0,0],[0,0,0],[0,0,0]];
+            if (!dir) {
+                for (var l = 0; l < face.length; l++) {
+                    temp[l] = [face[2][l],face[1][l],face[0][l]];
+                }
+                B = temp;
+                var x = L[0];
+                L[0] = D[0];
+                D[0] = R[0];
+                R[0] = U[0];
+                U[0] = x;
+            }
+            else {
+                for (var l = 0; l < face.length; l++) {
+                    temp[l] = [face[0][2 - l],face[1][2 - l],face[2][2 - l]];
+                }
+                B = temp;
+                var x = R[0];
+                R[0] = D[0];
+                D[0] = L[0];
+                L[0] = U[0];
+                U[0] = x;
+            }
         }
         if (targ === 'L') {
             console.log('left');
