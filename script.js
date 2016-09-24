@@ -30,10 +30,10 @@ function doAlg(arr) {
                     temp[l] = [face[2][l],face[1][l],face[0][l]];
                 }
                 F = temp;
-                var x = L[2];
-                L[2] = D[2];
-                D[2] = R[2];
-                R[2] = U[2];
+                var x = [L[0][2],L[1][2],L[2][2]];
+                [L[0][2],L[1][2],L[2][2]] = D[2];
+                D[2] = [R[0][0],R[1][0],R[2][0]];
+                [R[0][0],R[1][0],R[2][0]] = U[2];
                 U[2] = x;
             }
             else {
@@ -41,10 +41,10 @@ function doAlg(arr) {
                     temp[l] = [face[0][2 - l],face[1][2 - l],face[2][2 - l]];
                 }
                 F = temp;
-                var x = R[2];
-                R[2] = D[2];
-                D[2] = L[2];
-                L[2] = U[2];
+                var x = [R[0][0],R[1][0],R[2][0]];
+                [R[0][0],R[1][0],R[2][0]] = D[2];
+                D[2] = [L[0][2],L[1][2],L[2][2]];
+                [L[0][2],L[1][2],L[2][2]] = U[2];
                 U[2] = x;
             }
         }
@@ -98,6 +98,7 @@ function doAlg(arr) {
         }
     }
 }
+
 function c() {
         console.log('U');
         console.log(U.join('\n'));
