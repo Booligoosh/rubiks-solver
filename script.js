@@ -1,115 +1,70 @@
 /*
-COLORS:
-0: white
-1: yellow
-2: green
-3: blue
-4: orange
-5: red
-*/
-//algorithms
-var fururf = [['F',true],['U',true],['R',true],['U',false],['R',false],['F',false]];
-//faces
-var U = [[0,0,0],[0,0,0],[0,0,0]];
-var D = [[1,1,1],[1,1,1],[1,1,1]];
-var F = [[2,2,2],[2,2,2],[2,2,2]];
-var B = [[3,3,3],[3,3,3],[3,3,3]];
-var L = [[4,4,4],[4,4,4],[4,4,4]];
-var R = [[5,5,5],[5,5,5],[5,5,5]];
 
-function doAlg(arr) {
-    for (var  i = 0; i < arr.length; i++) {
-        var targ = arr[i][0];
-        var dir = arr[i][1];
-        if (targ === 'F') {
-            console.log('front');
-            var face = F;
-            var temp = [[0,0,0],[0,0,0],[0,0,0]];
-            if (dir) {
-                for (var l = 0; l < face.length; l++) {
-                    temp[l] = [face[2][l],face[1][l],face[0][l]];
-                }
-                F = temp;
-                var x = [L[0][2],L[1][2],L[2][2]];
-                [L[0][2],L[1][2],L[2][2]] = D[2];
-                D[2] = [R[0][0],R[1][0],R[2][0]];
-                [R[0][0],R[1][0],R[2][0]] = U[2];
-                U[2] = x;
-            }
-            else {
-                for (var l = 0; l < face.length; l++) {
-                    temp[l] = [face[0][2 - l],face[1][2 - l],face[2][2 - l]];
-                }
-                F = temp;
-                var x = [R[0][0],R[1][0],R[2][0]];
-                [R[0][0],R[1][0],R[2][0]] = D[2];
-                D[2] = [L[0][2],L[1][2],L[2][2]];
-                [L[0][2],L[1][2],L[2][2]] = U[2];
-                U[2] = x;
-            }
+cube[0] => F
+cube[1] => U
+cube[2] => B
+cube[3] => D
+cube[4] => L
+cube[5] => R
+
+*/
+
+var cubeIndexReference = ['F','U','B','D','L','R',];
+
+var cube = [];
+for (var i = 0; i < 6; i++) {
+    var faceTemp = [];
+    for (var l = 0; l < 3; l++) {
+        var rowTemp = [];
+        for (var z = 0; z < 3; z++) {
+            rowTemp.push(i);
         }
-        if (targ === 'B') {
-            console.log('back');
-            var face = B;
-            var temp = [[0,0,0],[0,0,0],[0,0,0]];
-            if (!dir) {
-                for (var l = 0; l < face.length; l++) {
-                    temp[l] = [face[2][l],face[1][l],face[0][l]];
-                }
-                B = temp;
-                var x = L[0];
-                L[0] = D[0];
-                D[0] = R[0];
-                R[0] = U[0];
-                U[0] = x;
-            }
-            else {
-                for (var l = 0; l < face.length; l++) {
-                    temp[l] = [face[0][2 - l],face[1][2 - l],face[2][2 - l]];
-                }
-                B = temp;
-                var x = R[0];
-                R[0] = D[0];
-                D[0] = L[0];
-                L[0] = U[0];
-                U[0] = x;
-            }
+        faceTemp.push(rowTemp);
+    }
+    cube.push(faceTemp);
+    log(faceTemp.join('\n'));
+    log('\n');
+}
+
+
+function surroundingEdgesOf(face) {
+    var faceNum = typeof(face) == 'number'? face:cubeIndexReference.indexOf(face);
+    var surroundingFaceNames;
+    switch (faceNum) {
+        case 0:
+            surroundingFaceNames = 'URDL';
+        break;
+        case 1:
+            surroundingFaceNames = 'BRFL';
+        break;
+        case 2:
+            surroundingFaceNames = 'DRUL';
+        break;
+        case 3:
+            surroundingFaceNames = 'FRBL';
+        break;
+        case 4:
+            surroundingFaceNames = 'UFDB';
+        break;
+        case 5:
+            surroundingFaceNames = 'UBDF';
+        break;
+    }
+    if (surroundingFaceNames == undefined) {
+        return(undefined);
+    }
+    else {
+        var surroundingFaceNums = surroundingFaceNames.split('');
+        for (var i = 0; i < surroundingFaceNums.length; i++) {
+            surroundingFaceNums[i] = cubeIndexReference.indexOf(surroundingFaceNums[i]);
         }
-        if (targ === 'L') {
-            console.log('left');
-        }
-        if (targ === 'R') {
-            console.log('right');
-        }
-        if (targ === 'U') {
-            console.log('up');
-        }
-        if (targ === 'D') {
-            console.log('down');
-        }
-        if (targ === 'M') {
-            console.log('middle');
-        }
-        if (targ === 'E') {
-            console.log('equator');
-        }
-        if (targ === 'S') {
-            console.log('side');
-        }
+        return(surroundingFaceNums);
     }
 }
 
-function c() {
-        console.log('U');
-        console.log(U.join('\n'));
-        console.log('D');
-        console.log(D.join('\n'));
-        console.log('F');
-        console.log(F.join('\n'));
-        console.log('B');
-        console.log(B.join('\n'));
-        console.log('L');
-        console.log(L.join('\n'));
-        console.log('R');
-        console.log(R.join('\n'));
+function log(str) {
+    console.log(str);
+    str = str.replace(/\n/g, '<br>')
+    var br = document.getElementById('console').innerHTML == '' ? '' : '<br>'
+    document.getElementById('console').innerHTML = document.getElementById('console').innerHTML + br + str;
 }
